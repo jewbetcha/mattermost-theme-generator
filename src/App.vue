@@ -1,0 +1,150 @@
+<template>
+  <div id="app">
+    <h2>mattermost</h2>
+    <h3>theme generator</h3>
+    <h4>Click the button to generate a theme</h4>
+    <Generator/>
+    <h4>made by <a href="https://colemanrollins.io">coleman</a></h4>
+  </div>
+</template>
+
+<script>
+import Generator from './components/Generator';
+
+export default {
+  name: 'app',
+  components: {
+    Generator,
+  },
+};
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+
+html {
+    /* Change default typefaces here */
+    font-family: serif;
+    font-size: 137.5%;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Copy & Lists */
+  p {
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+  ul,
+  ol {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  ul li,
+  ol li {
+    line-height: 1.5rem;
+  }
+  ul ul,
+  ol ul,
+  ul ol,
+  ol ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  blockquote {
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    /* Change heading typefaces here */
+    font-family: sans-serif;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    line-height: 1.5rem;
+  }
+  h1 {
+    font-size: 4.242rem;
+    line-height: 4.5rem;
+    margin-top: 3rem;
+  }
+  h2 {
+    font-size: 2.828rem;
+    line-height: 3rem;
+    margin-top: 3rem;
+  }
+  h3 {
+    font-size: 1.414rem;
+  }
+  h4 {
+    font-size: 0.707rem;
+  }
+  h5 {
+    font-size: 0.4713333333333333rem;
+  }
+  h6 {
+    font-size: 0.3535rem;
+  }
+  /* Tables */
+  table {
+    margin-top: 1.5rem;
+    border-spacing: 0px;
+    border-collapse: collapse;
+  }
+  table td,
+  table th {
+    padding: 0;
+    line-height: 33px;
+  }
+  /* Code blocks */
+  code {
+    vertical-align: bottom;
+  }
+  /* Leading paragraph text */
+  .lead {
+    font-size: 1.414rem;
+  }
+  /* Hug the block above you */
+  .hug {
+    margin-top: 0;
+  }
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    color: #8EB897;
+    font-family: 'Alfa Slab One', cursive;
+}
+
+h4 {
+    font-weight: 300;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 960px;
+    width: 100%;
+}
+</style>
