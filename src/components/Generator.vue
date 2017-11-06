@@ -164,9 +164,6 @@ button {
 button:hover {
   background-color: #424242;
 }
-.ckbx-style-5 label {
-  margin: auto;
-}
 p {
   text-align: center;
 }
