@@ -8,9 +8,9 @@
         </div>
     </div>
     <div v-if="showCode" class='code'>
-        <code id="code">
-          {{ themeCode }}
-        </code>
+        <textarea spellcheck="false" id="code" v-model="themeCode">
+        </textarea>
+        <button v-clipboard:copy="themeCode">copy code</button>
     </div>
   </div>
 </template>
@@ -26,6 +26,7 @@ export default {
       showCode: false,
       showTheme: false,
       darkTheme: false,
+      code: '',
       themeCode: {
         sidebarBg: '',
         sidebarText: '',
@@ -91,7 +92,7 @@ export default {
     buildCode(colors) {
       // Build theme code for copying
       const theme = this.themeCode;
-      theme.sidebarBg = colors[6];
+      theme.sidebarBg = colors[1];
       theme.sidebarTextActiveBorder = colors[1];
       theme.sidebarTextHoverBg = colors[6];
       theme.sidebarHeaderBg = colors[6];
@@ -123,6 +124,7 @@ export default {
       this.colors.push(seed.bg);
       this.colors.push(seed.text);
       this.buildCode(this.colors);
+      this.themeCode = JSON.stringify(this.themeCode);
       this.showCode = true;
     },
     palette() {
@@ -135,6 +137,7 @@ export default {
       this.colors.push(seed.bg);
       this.colors.push(seed.text);
       this.buildCode(this.colors);
+      this.themeCode = JSON.stringify(this.themeCode);
       this.showCode = true;
     },
   },
@@ -175,10 +178,21 @@ p {
 .code {
   max-width: 960px;
   width: 100%;
+  text-align: center;
 }
 code {
   max-width: 960px;
   width: 100%;
   word-wrap: break-word;
+}
+textarea {
+  width: 100%;
+  resize: none;
+  height: 100px;
+  color: #ffffff;
+  background-color: transparent;
+  font-family: monospace;
+  border: none;
+  outline: none;
 }
 </style>
