@@ -10,8 +10,8 @@
         <div v-for='color in colors' :key='color.id' v-bind:style='{ backgroundColor: color}' class='box'>
         </div>
     </div>
-    <div class='code'>
-        <code v-if="showCode">
+    <div v-if="showCode" class='code'>
+        <code id="code">
           {{ themeCode }}
         </code>
     </div>
@@ -57,11 +57,31 @@ export default {
     getRandom() {
       return chroma.random().hex();
     },
+    buildCode(colors) {
+      const theme = this.themeCode;
+      theme.sidebarBg = colors[0];
+      theme.sidebarTextActiveBorder = colors[1];
+      theme.sidebarTextHoverBg = colors[0];
+      theme.sidebarHeaderBg = colors[0];
+      theme.onlineIndicator = colors[4];
+      theme.awayIndicator = colors[5];
+      theme.mentionBj = colors[1];
+      theme.centerChannelBg = colors[0];
+      theme.centerChannelColor = colors[5];
+      theme.newMessageSeparator = colors[4];
+      theme.linkColor = colors[5];
+      theme.buttonBg = colors[1];
+      theme.buttonColor = colors[2];
+      theme.errorTextColor = colors[3];
+      theme.mentionHighlightBg = colors[4];
+      theme.mentionHighlightLink = colors[5];
+    },
     random() {
       this.colors = [];
       for (let i = 0; i < 6; i += 1) {
         this.colors.push(this.getRandom());
       }
+      this.buildCode(this.colors);
       this.showCode = true;
     },
     palette() {
@@ -70,6 +90,7 @@ export default {
       const rand2 = this.getRandom();
       const scale = chroma.scale([rand1, rand2]).mode('lch').colors(6);
       this.colors = [...scale];
+      this.buildCode(this.colors);
       this.showCode = true;
     },
   },
