@@ -12,7 +12,6 @@
 
 <script>
 import Generator from './components/Generator';
-import './assets/typebase.css';
 
 export default {
   name: 'app',
@@ -23,6 +22,8 @@ export default {
 </script>
 
 <style>
+@import './assets/typebase.css';
+
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 300;
