@@ -1,11 +1,7 @@
 <template>
   <div class='generator'>
-    <button @click='random'>
-        generate random
-    </button>
-    <button @click='palette'>
-        generate palette
-    </button>
+    <button @click='random'>generate random</button>
+    <button @click='palette'>generate palette</button>
     <p v-if="showTheme">Theme style: <span v-if="darkTheme">Dark</span> <span v-else>Light</span></p>
     <div class='row'>
         <div v-for='color in 6' :key='color.id' v-bind:style='{ backgroundColor: colors[color]}' class='box'>
