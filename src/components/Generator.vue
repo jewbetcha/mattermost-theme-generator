@@ -1,6 +1,6 @@
 <template>
   <div class='generator'>
-    <button @click='random()'>
+    <button @click='random'>
         generate random
     </button>
     <button @click='palette'>
@@ -57,12 +57,13 @@ export default {
     };
   },
   methods: {
-    getRandom() {
+    getRandomColor() {
+      // Random color
       return chroma.random().hex();
     },
     generateColorPair() {
-      // Generate a color pair dark or light with enough contrast
-      // to be readable
+      // Generate a color pair dark or light with enough
+      // contrast to be readable
       // https://github.com/gka/chroma.js/issues/45
       const MIN_CONTRAST_RATIO = 7;
       const WHITE = chroma('white');
@@ -92,6 +93,7 @@ export default {
       };
     },
     buildCode(colors) {
+      // Build theme code for copying
       const theme = this.themeCode;
       theme.sidebarBg = colors[6];
       theme.sidebarTextActiveBorder = colors[1];
@@ -115,14 +117,12 @@ export default {
       theme.mentionHighlightBg = colors[4];
       theme.mentionHighlightLink = colors[5];
     },
-    themeChange() {
-      // console.log('changed');
-    },
     random() {
+      // Generate random theme
       this.colors = [];
       const seed = this.generateColorPair();
       for (let i = 0; i < 6; i += 1) {
-        this.colors.push(this.getRandom());
+        this.colors.push(this.getRandomColor());
       }
       this.colors.push(seed.bg);
       this.colors.push(seed.text);
@@ -130,9 +130,10 @@ export default {
       this.showCode = true;
     },
     palette() {
+      // Generate palette theme
       this.colors = [];
       const seed = this.generateColorPair();
-      const rand = this.getRandom();
+      const rand = this.getRandomColor();
       const scale = chroma.scale([seed.bg, rand]).mode('lch').colors(6);
       this.colors = [...scale];
       this.colors.push(seed.bg);
@@ -161,7 +162,7 @@ button {
   margin: 10px auto;
 }
 button:hover {
-    background-color: #424242;
+  background-color: #424242;
 }
 .ckbx-style-5 label {
   margin: auto;
@@ -170,23 +171,21 @@ p {
   text-align: center;
 }
 .row {
-    display: flex;
-    flex-direction: row;
-    margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  margin: 10px auto;
 }
-
 .box {
-    height: 150px;
-    width: 150px;
+  height: 150px;
+  width: 150px;
 }
-
 .code {
-    max-width: 960px;
-    width: 100%;
+  max-width: 960px;
+  width: 100%;
 }
 code {
-    max-width: 960px;
-    width: 100%;
-    word-wrap: break-word;
+  max-width: 960px;
+  width: 100%;
+  word-wrap: break-word;
 }
 </style>
