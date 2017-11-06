@@ -4,7 +4,7 @@
     <h3>theme generator</h3>
     <h4>Click the button to generate a theme</h4>
     <Generator/>
-    <h4>made by <a href="https://colemanrollins.io">coleman</a></h4>
+    <h4>made by <a href="https://colemanrollins.io" target="_blank">coleman</a></h4>
   </div>
 </template>
 
@@ -146,5 +146,8 @@ h4 {
     align-items: center;
     max-width: 960px;
     width: 100%;
+}
+a {
+  color: #8EB897;
 }
 </style>
