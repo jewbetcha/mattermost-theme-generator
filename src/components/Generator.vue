@@ -63,6 +63,7 @@ export default {
     generateColorPair() {
       // Generate a color pair dark or light with enough contrast
       // to be readable
+      // https://github.com/gka/chroma.js/issues/45
       const MIN_CONTRAST_RATIO = 7;
       const WHITE = chroma('white');
       const BLACK = chroma('black');

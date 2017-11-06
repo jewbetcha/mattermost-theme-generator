@@ -1,6 +1,7 @@
-# mattermost-theme-vue
+# mattermost-theme-generator
 
-> Make a theme for your Mattermost client
+> Create a theme for your Mattermost client.
+> Project bootstrapped with `vue-cli`.
 
 http://matterthemes.surge.sh/
 
@@ -25,5 +26,3 @@ yarn unit
 # run all tests
 yarn test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
