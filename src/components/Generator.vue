@@ -1,7 +1,7 @@
 <template>
   <div class='generator'>
-    <button @click='random'>generate random</button>
-    <button @click='palette'>generate palette</button>
+    <v-button :onClick='random' help-text="generate random"/></v-button>
+    <v-button :onClick='palette' help-text="generate palette"></v-button>
     <p v-if="showTheme">Theme style: <span v-if="darkTheme">Dark</span> <span v-else>Light</span></p>
     <div class='row'>
         <div v-for='color in 6' :key='color.id' v-bind:style='{ backgroundColor: colors[color]}' class='box'>
@@ -17,9 +17,13 @@
 
 <script>
 import chroma from 'chroma-js';
+import Button from './Button';
 
 export default {
   name: 'Generator',
+  components: {
+    'v-button': Button,
+  },
   data() {
     return {
       colors: [],
@@ -27,30 +31,7 @@ export default {
       showTheme: false,
       darkTheme: false,
       code: '',
-      themeCode: {
-        sidebarBg: '',
-        sidebarText: '',
-        sidebarUnreadText: '',
-        sidebarTextHoverBg: '',
-        sidebarTextActiveBorder: '',
-        sidebarTextActiveColor: '',
-        sidebarHeaderBg: '',
-        sidebarHeaderTextColor: '',
-        onlineIndicator: '',
-        awayIndicator: '',
-        mentionBj: '',
-        mentionColor: '',
-        centerChannelBg: '',
-        centerChannelColor: '',
-        newMessageSeparator: '',
-        linkColor: '',
-        buttonBg: '',
-        buttonColor: '',
-        errorTextColor: '',
-        mentionHighlightBg: '',
-        mentionHighlightLink: '',
-        codeTheme: 'custom',
-      },
+      themeCode: {},
     };
   },
   methods: {
@@ -150,20 +131,6 @@ export default {
 .generator {
   display: flex;
   flex-direction: column;
-}
-button {
-  font-size: 20px;
-  background-color: transparent;
-  padding: 10px 20px;
-  color: #ffffff;
-  border: 2px solid white;
-  cursor: pointer;
-  transition: all .2s ease-in-out;
-  outline: none;
-  margin: 10px auto;
-}
-button:hover {
-  background-color: #424242;
 }
 p {
   text-align: center;
