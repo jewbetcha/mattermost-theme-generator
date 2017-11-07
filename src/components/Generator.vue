@@ -93,10 +93,10 @@ export default {
       // Build theme code for copying
       const theme = this.themeCode;
       theme.sidebarBg = colors[1];
-      theme.sidebarTextActiveBorder = colors[1];
       theme.sidebarTextHoverBg = colors[6];
       theme.sidebarHeaderBg = colors[6];
       theme.sidebarHeaderTextColor = colors[7];
+      theme.sidebarTextActiveBorder = colors[1];
       theme.sidebarText = colors[7];
       theme.sidebarUnreadText = colors[3];
       theme.sidebarTextActiveColor = colors[2];
@@ -117,6 +117,7 @@ export default {
     random() {
       // Generate random theme
       this.colors = [];
+      this.themeCode = {};
       const seed = this.generateColorPair();
       for (let i = 0; i < 6; i += 1) {
         this.colors.push(this.getRandomColor());
@@ -130,6 +131,7 @@ export default {
     palette() {
       // Generate palette theme
       this.colors = [];
+      this.themeCode = {};
       const seed = this.generateColorPair();
       const rand = this.getRandomColor();
       const scale = chroma.scale([seed.bg, rand]).mode('lch').colors(6);
