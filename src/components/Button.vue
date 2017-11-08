@@ -1,18 +1,18 @@
 <template>
-  <button @click="onClick">{{ helpText }}</button>
+  <button @click="onClick">{{ words }}</button>
 </template>
 
 <script>
 export default {
   name: 'Button',
   props: {
-    helpText: {
+    words: {
       type: String,
       required: true,
     },
     onClick: {
       type: Function,
-      required: true,
+      required: false,
     },
   },
 };

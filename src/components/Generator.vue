@@ -1,7 +1,7 @@
 <template>
   <div class='generator'>
-    <v-button :onClick='random' help-text="generate random"/></v-button>
-    <v-button :onClick='palette' help-text="generate palette"></v-button>
+    <v-button :onClick='random' words="generate random"/></v-button>
+    <v-button :onClick='palette' words="generate palette"></v-button>
     <p v-if="showTheme">Theme style: <span v-if="darkTheme">Dark</span> <span v-else>Light</span></p>
     <div class='row'>
         <div v-for='color in 6' :key='color.id' v-bind:style='{ backgroundColor: colors[color]}' class='box'>
@@ -30,7 +30,6 @@ export default {
       showCode: false,
       showTheme: false,
       darkTheme: false,
-      code: '',
       themeCode: {},
     };
   },
