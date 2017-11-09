@@ -11,6 +11,7 @@
         <textarea spellcheck="false" id="code" v-model="themeCode">
         </textarea>
         <button v-clipboard:copy="themeCode">copy code</button>
+        <button v-clipboard:copy="shareThemeCode">copy shareable url</button>
     </div>
   </div>
 </template>
@@ -30,8 +31,33 @@ export default {
       showCode: false,
       showTheme: false,
       darkTheme: false,
+      shareThemeCode: '',
       themeCode: {},
     };
+  },
+  beforeMount() {
+    // Check for a URL query with a color
+    if (this.$route.query.code) {
+      try {
+        // Make sure its valid JSON first
+        const query = this.$route.query.code;
+        const c = JSON.parse(query);
+        this.themeCode = query;
+        this.showCode = true;
+        this.showTheme = true;
+        this.colors.push(c.onlineIndicator,
+                        c.sidebarBg,
+                        c.linkColor,
+                        c.sidebarUnreadText,
+                        c.newMessageSeparator,
+                        c.awayIndicator,
+                        c.centerChannelBg);
+      } catch (e) {
+        throw e;
+      }
+    } else {
+      // move along
+    }
   },
   methods: {
     getRandomColor() {
@@ -106,6 +132,8 @@ export default {
       this.colors.push(seed.text);
       this.buildCode(this.colors);
       this.themeCode = JSON.stringify(this.themeCode);
+      const uriComponent = encodeURIComponent(this.themeCode);
+      this.shareThemeCode = `matterthemes.surge.sh/#/?code=${uriComponent}`;
       this.showCode = true;
     },
     palette() {
@@ -120,6 +148,8 @@ export default {
       this.colors.push(seed.text);
       this.buildCode(this.colors);
       this.themeCode = JSON.stringify(this.themeCode);
+      const uriComponent = encodeURIComponent(this.themeCode);
+      this.shareThemeCode = `matterthemes.surge.sh/#/?code=${uriComponent}`;
       this.showCode = true;
     },
   },

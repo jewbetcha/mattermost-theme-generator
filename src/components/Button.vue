@@ -31,6 +31,6 @@ button {
   margin: 10px auto;
 }
 button:hover {
-    background-color: #424242;
+  background-color: #424242;
 }
 </style>
