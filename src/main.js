@@ -3,10 +3,15 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueClipboard from 'vue-clipboard2';
+import Toasted from 'vue-toasted';
 import App from './App';
 
 Vue.use(VueRouter);
 Vue.use(VueClipboard);
+Vue.use(Toasted, {
+  type: 'success',
+  duration: 1500,
+});
 Vue.config.productionTip = false;
 
 const routes = [

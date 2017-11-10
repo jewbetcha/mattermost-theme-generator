@@ -10,8 +10,8 @@
     <div v-if="showCode" class='code'>
         <textarea spellcheck="false" id="code" v-model="themeCode">
         </textarea>
-        <button v-clipboard:copy="themeCode">copy code</button>
-        <button v-clipboard:copy="shareThemeCode">copy shareable url</button>
+        <button v-clipboard:copy="themeCode" @click="toast">copy code</button>
+        <button v-clipboard:copy="shareThemeCode" @click="toast">copy shareable url</button>
     </div>
   </div>
 </template>
@@ -151,6 +151,9 @@ export default {
       const uriComponent = encodeURIComponent(this.themeCode);
       this.shareThemeCode = `matterthemes.surge.sh/#/?code=${uriComponent}`;
       this.showCode = true;
+    },
+    toast() {
+      this.$toasted.show('Copied!');
     },
   },
 };
