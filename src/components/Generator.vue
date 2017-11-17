@@ -105,7 +105,7 @@ export default {
       theme.sidebarTextActiveBorder = colors[1];
       theme.sidebarText = colors[7];
       theme.sidebarUnreadText = colors[3];
-      theme.sidebarTextActiveColor = colors[2];
+      theme.sidebarTextActiveColor = colors[4];
       theme.onlineIndicator = colors[0];
       theme.awayIndicator = colors[5];
       theme.mentionBj = colors[1];
@@ -113,7 +113,7 @@ export default {
       theme.centerChannelBg = colors[6];
       theme.centerChannelColor = colors[7];
       theme.newMessageSeparator = colors[4];
-      theme.linkColor = colors[2];
+      theme.linkColor = colors[3];
       theme.buttonBg = colors[1];
       theme.buttonColor = colors[7];
       theme.errorTextColor = colors[3];
